@@ -1,0 +1,251 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+
+  --font-display: "General Sans", "Satoshi", "Inter Tight", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Inter", "General Sans", ui-sans-serif, system-ui, sans-serif;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+
+  --color-gas-green: var(--gas-green);
+  --color-gas-yellow: var(--gas-yellow);
+  --color-gas-orange: var(--gas-orange);
+  --color-gas-red: var(--gas-red);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+
+  --animate-fade-up: fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-fade-in: fade-in 0.6s ease-out both;
+  --animate-float: float 5s ease-in-out infinite;
+  --animate-pulse-glow: pulse-glow 2.4s ease-in-out infinite;
+  --animate-spin-slow: spin 18s linear infinite;
+  --animate-draw: draw 1.2s ease-out forwards;
+}
+
+/* ─── Dark theme (default) ─────────────────────────────────────────── */
+:root,
+:root.dark {
+  --radius: 0.875rem;
+
+  --background: oklch(0.16 0.012 150);
+  --foreground: oklch(0.97 0.003 150);
+  --surface: oklch(0.19 0.013 150);
+  --surface-2: oklch(0.23 0.014 150);
+
+  --card: oklch(0.19 0.013 150);
+  --card-foreground: oklch(0.97 0.003 150);
+  --popover: oklch(0.19 0.013 150);
+  --popover-foreground: oklch(0.97 0.003 150);
+
+  --primary: oklch(0.78 0.16 142);
+  --primary-foreground: oklch(0.16 0.012 150);
+  --secondary: oklch(0.25 0.014 150);
+  --secondary-foreground: oklch(0.97 0.003 150);
+  --muted: oklch(0.25 0.014 150);
+  --muted-foreground: oklch(0.72 0.012 150);
+  --accent: oklch(0.28 0.02 150);
+  --accent-foreground: oklch(0.97 0.003 150);
+  --destructive: oklch(0.62 0.22 27);
+  --destructive-foreground: oklch(0.97 0.003 150);
+  --border: oklch(1 0 0 / 8%);
+  --input: oklch(1 0 0 / 10%);
+  --ring: oklch(0.78 0.16 142 / 60%);
+
+  /* Gas-level palette — lightened greens for dark theme */
+  --gas-green: #5BD17A;
+  --gas-green-hex: #5BD17A;
+  --gas-green-deep: #2E8B47;
+  --gas-yellow: #F2C12E;
+  --gas-orange: #F2862E;
+  --gas-red: #E84C3D;
+
+  --gradient-gas: linear-gradient(135deg, #5BD17A 0%, #F2C12E 45%, #F2862E 75%, #E84C3D 100%);
+  --gradient-gas-soft: linear-gradient(135deg, rgba(91,209,122,.16), rgba(242,193,46,.12) 45%, rgba(242,134,46,.12) 75%, rgba(232,76,61,.16));
+  --shadow-card: 0 1px 0 rgba(255,255,255,.04) inset, 0 20px 60px -30px rgba(0,0,0,.7);
+
+  /* Brand button — calm, single-tone, easy on the eyes */
+  --btn-brand-bg: #2F8F4A;
+  --btn-brand-bg-hover: #36A055;
+  --btn-brand-fg: #F5FBF6;
+  --btn-brand-ring: rgba(91,209,122,.18);
+
+  /* Logo adapts to background */
+  --logo-fg: #F5F7F6;
+  --logo-fg-soft: rgba(245,247,246,.55);
+}
+
+/* ─── Light theme ──────────────────────────────────────────────────── */
+:root.light {
+  --background: oklch(0.985 0.003 150);
+  --foreground: oklch(0.18 0.012 150);
+  --surface: oklch(1 0 0);
+  --surface-2: oklch(0.96 0.005 150);
+
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.18 0.012 150);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.18 0.012 150);
+
+  --primary: oklch(0.55 0.16 142);
+  --primary-foreground: oklch(0.99 0.003 150);
+  --secondary: oklch(0.94 0.005 150);
+  --secondary-foreground: oklch(0.18 0.012 150);
+  --muted: oklch(0.94 0.005 150);
+  --muted-foreground: oklch(0.48 0.012 150);
+  --accent: oklch(0.92 0.012 150);
+  --accent-foreground: oklch(0.18 0.012 150);
+  --destructive: oklch(0.55 0.22 27);
+  --destructive-foreground: oklch(0.99 0.003 150);
+  --border: oklch(0 0 0 / 10%);
+  --input: oklch(0 0 0 / 12%);
+  --ring: oklch(0.55 0.16 142 / 45%);
+
+  --gas-green: #2E8B47;
+  --gas-green-hex: #2E8B47;
+  --gas-green-deep: #1F6A33;
+  --gas-yellow: #D9A816;
+  --gas-orange: #DB6F1F;
+  --gas-red: #C8362A;
+
+  --gradient-gas: linear-gradient(135deg, #2E8B47 0%, #D9A816 45%, #DB6F1F 75%, #C8362A 100%);
+  --gradient-gas-soft: linear-gradient(135deg, rgba(46,139,71,.12), rgba(217,168,22,.10) 45%, rgba(219,111,31,.10) 75%, rgba(200,54,42,.12));
+  --shadow-card: 0 1px 0 rgba(0,0,0,.02) inset, 0 14px 40px -22px rgba(20,40,28,.18);
+
+  --btn-brand-bg: #2E8B47;
+  --btn-brand-bg-hover: #267839;
+  --btn-brand-fg: #FFFFFF;
+  --btn-brand-ring: rgba(46,139,71,.18);
+
+  --logo-fg: #1B1F1D;
+  --logo-fg-soft: rgba(27,31,29,.55);
+}
+
+@keyframes fade-up { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
+@keyframes float { 0%, 100% { transform: translateY(-4px); } 50% { transform: translateY(6px); } }
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 0 0 var(--btn-brand-ring), 0 10px 28px -12px rgba(0,0,0,.35); }
+  50%      { box-shadow: 0 0 0 6px transparent, 0 14px 32px -14px rgba(0,0,0,.4); }
+}
+@keyframes draw { to { stroke-dashoffset: 0; } }
+
+@layer base {
+  * { border-color: var(--color-border); }
+  html { scroll-behavior: smooth; -webkit-tap-highlight-color: transparent; }
+  body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    font-feature-settings: "ss01", "cv11";
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+  ::selection { background: color-mix(in oklab, var(--gas-green) 35%, transparent); color: var(--foreground); }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer utilities {
+  .text-gradient-gas {
+    background: var(--gradient-gas);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .bg-gradient-gas { background: var(--gradient-gas); }
+  .bg-gradient-gas-soft { background: var(--gradient-gas-soft); }
+  .ring-gradient-gas {
+    position: relative;
+    background:
+      linear-gradient(var(--surface), var(--surface)) padding-box,
+      var(--gradient-gas) border-box;
+    border: 1px solid transparent;
+  }
+
+  /* Calm, single-tone brand button — replaces the bright multi-color gradient */
+  .btn-brand {
+    background: var(--btn-brand-bg);
+    color: var(--btn-brand-fg);
+    border: 1px solid color-mix(in oklab, var(--btn-brand-bg) 70%, black 0%);
+    box-shadow: 0 1px 0 rgba(255,255,255,.08) inset, 0 8px 22px -10px rgba(0,0,0,.45);
+    transition: background-color .2s ease, transform .15s ease, box-shadow .2s ease;
+  }
+  .btn-brand:hover { background: var(--btn-brand-bg-hover); transform: translateY(-1px); }
+  .btn-brand:active { transform: translateY(0); }
+  .btn-brand:focus-visible { outline: none; box-shadow: 0 0 0 4px var(--btn-brand-ring); }
+
+  .btn-ghost {
+    background: color-mix(in oklab, var(--surface) 85%, transparent);
+    color: var(--foreground);
+    border: 1px solid var(--border);
+    transition: background-color .2s ease, transform .15s ease;
+  }
+  .btn-ghost:hover { background: var(--surface); transform: translateY(-1px); }
+
+  .eyebrow {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted-foreground);
+  }
+  .reveal { opacity: 1; transform: none; will-change: opacity, transform; }
+  .js .reveal {
+    opacity: 0;
+    transform: translateY(22px);
+    transition: opacity .9s cubic-bezier(.22,1,.36,1), transform .9s cubic-bezier(.22,1,.36,1);
+  }
+  .js .reveal.in { opacity: 1; transform: translateY(0); }
+  .grid-bg {
+    background-image:
+      radial-gradient(color-mix(in oklab, var(--gas-green) 22%, transparent) 1px, transparent 1px),
+      radial-gradient(color-mix(in oklab, var(--gas-orange) 18%, transparent) 1px, transparent 1px);
+    background-size: 28px 28px, 56px 56px;
+    background-position: 0 0, 14px 14px;
+  }
+
+  /* Cylix logo theme swap — show light wordmark on dark bg, dark wordmark on light bg. */
+  .cylix-logo-light { display: block; }
+  .cylix-logo-dark { display: none; }
+  :root.dark .cylix-logo-light { display: none; }
+  :root.dark .cylix-logo-dark { display: block; }
+}
